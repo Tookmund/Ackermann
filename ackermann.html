@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+  <title>Ackermann</title>
+  <script>
+    function ack(m,n) {
+      console.log(m + " " + n);
+        if (m == 0) return n+1;
+        else if (m > 0 && n == 0) return ack(m-1,1);
+        else if (m > 0 && n > 0) return ack(m-1,ack(m,n-1));
+    }
+  window.addEventListener('load', function(e) {
+    document.querySelector('#test').innerHTML = 'Ack 1,1 = ' + ack(1,1) + "; Ack 1,2 = " + ack(1,2) + "; Ack 3,4 = " + ack(3,4) + "; Ack 4,0 = " + ack(4,0);
+      }, false);
+  function infin() {
+    document.querySelector('#test').innerHTML += "Ack 4,1 = " + ack(4,1);
+  }
+  </script>
+</head>
+<body>
+  <h1>Ackermann</h1>
+<button onclick="infin()">Danger!</button>
+  <div id="test"></div>
+
+  <script src="script.js"></script>
+</head>
+</body>
+</html>
